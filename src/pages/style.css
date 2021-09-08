@@ -1,0 +1,93 @@
+.articleCard{
+    margin-top: 25px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 10px;
+}
+
+.articleCard p{
+    margin-bottom: 0;
+}
+
+.content{
+    padding: 12px 20px 20px 20px;
+    margin-top: 15px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 10px;
+}
+
+.card-content{
+    padding: 12px 20px 20px 20px;
+}
+
+.articleCard img{
+    width: 100%;
+    height: 25vh;
+    border-radius: 10px 10px 0px 0px;
+    object-fit: cover;
+    opacity: 0.88;
+}
+
+.wallpaper{
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 20px;
+    color: white;
+}
+
+.para{
+    margin-top: 20px;
+}
+
+.feature{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top:20px;    
+    padding-bottom: 10px;
+}
+
+.feature img{
+    width: 40%;
+}
+
+.content-wrapper{
+    flex: 1.5;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    padding-left: 30px;
+    justify-content: center;
+}
+
+.bg-grey{
+    background-color: rgb(250, 250, 250);
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+}
+
+.bg-grey .content-wrapper{
+    align-items: flex-start;
+}
+
+.hero {
+    height: 90vh;
+    background: rgb(250, 250, 250);
+    padding-top: 40px;
+}
+
+
+@media(min-width: 736px) {
+    .feature{
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .feature img{
+        width: 25%;
+    }
+}
