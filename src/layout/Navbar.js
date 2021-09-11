@@ -73,6 +73,8 @@ const Navbar = ({history}) => {
                 <li onClick={() => setActive(1)} className={ulActive === 1 && 'ul-active'}><Link to='/articles' style={{color: fontColor}}>Articles</Link></li>
                 {/* eslint-disable-next-line */}
                 <li onClick={() => setActive(2)} className={ulActive === 2 && 'ul-active'}><Link to='/tools' style={{color: fontColor}}>Tools</Link></li>
+                {/* eslint-disable-next-line */}
+                <li onClick={() => setActive(3)} className={ulActive === 3 && 'ul-active'}><Link to='/qna' style={{color: fontColor}}>QnA</Link></li>
                  {/* eslint-disable-next-line */}
                  {localStorage.getItem('authKey') ? <li className={'ul-fill'}><Link to='/dashboard'>Dashboard</Link></li> : <li className={'ul-fill'}><Link to='/signup'>Sign Up</Link></li>}
             </ul>

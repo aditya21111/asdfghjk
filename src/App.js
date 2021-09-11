@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom"
 import './App.css'
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import LandingPage from './pages/LandingPage'
 import SignUp from './pages/SignUp'
@@ -28,27 +28,32 @@ import ContactForm from './layout/ContactForm'
 import AdminPage from "./pages/AdminPage"
 import AddArticle from './components/admin/AddArticle'
 import EditArticle from './components/admin/EditArticle'
+import EditProfile from "./pages/EditProfile"
+
+import ScrollToTop from './layout/ScrollToTop'
 
 function App() {
   return (
     <div className="App">
-          <Router>
-      <Navbar />
+      <Router>
+        <Navbar />
+        <ScrollToTop />
       <Switch>
         <Route exact path='/' component={LandingPage} />
         <Route exact path='/signup' component={SignUp} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/tools' component={Tools} />
-        <Route exact path='/trainer' component={YogaTrainer} />
+        <Route exact path='/yoga' component={YogaTrainer} />
         <Route exact path='/articles' component={ArticleList} />
         <Route exact path='/footsteps' component={Pedometer} />
         <Route exact path='/sound-therapy' component={SoundTherapy} />
+        <Route exact path='/user/edit-profile' component={EditProfile} />
         <Route exact path='/articles/:slug/:id' component={ArticlePage} />
         <Route exact path='/qna' component={QnA} />
         <Route exact path='/qna/:id' component={Thread} />
         <Route exact path='/consultant-list' component={ConsultantList} />
-        <Route exact path='/chat' component={Chat} />
+        <Route exact path='/chat/:id' component={Chat} />
         <Route exact path='/admin' component={AdminPage} />
         <Route exact path='/admin/article/new' component={AddArticle} />
         <Route exact path='/admin/article/edit/:id' component={EditArticle} />

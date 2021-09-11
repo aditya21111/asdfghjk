@@ -19,6 +19,13 @@
     border-radius: 20000px;
 }
 
+.answer-card{
+    background: #eee;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
 @media(min-width: 726px) {
     .user-avatar{
         width: 40px;

@@ -1,33 +1,65 @@
 import React, {useState} from 'react'
 import swal from 'sweetalert'
 import {Button} from 'react-bootstrap'
+import axios from 'axios'
 
-const Comments = ({comments}) => {
+const Comments = ({comments, id, setComments}) => {
+    
+    const [commentVal, setCommentVal] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const postData = async () => {
         try {
-            console.log("pressed")
+
+            if(commentVal === '') return
+            setLoading(true)
+            const res = await axios.post(`/articles/comment/${id}`, {
+                comment: commentVal,
+                password: localStorage.getItem("authKey")
+            })
+            setLoading(false)
+            swal({
+                title: 'Success',
+                text: res.data.message,
+                icon: 'success',
+                button: 'OK'
+            })
+
+            console.log(res.data)
+
+            setComments(prev => {
+                if(Array.isArray(prev)) {
+                    return [res.data.comment, ...prev]
+                }
+                return [res.data.comment]
+            })
         } catch (err) {
             console.log(err.response)
+            setLoading(false)
             swal({
                 title: "Error !",
-                text: `${err.response.data.message}`,
+                text: `${err.response ? err.response.data.message : "An error occured!"}`,
                 icon: "error",
                 button: "Try Again",
               })
         }
     }
 
-    const [commentVal, setCommentVal] = useState('')
-console.log(comments)
+    const randomStyles = {
+        display: 'flex',
+        justifyContent: 'space-between'
+    }
+
     return (
         <div className='comments container'>
             <hr />
-            <h2>Comments</h2>
-            <input type="text" name="comment" value={commentVal} className='form-control' onChange={(e) => setCommentVal(e.target.value)} />
-            <button className='btn btn-o-green' onClick={postData}>Post</button>
-            <div className='comments-list' style={{marginTop: "20px"}}>
-                {comments && comments.map((comm, index) => {
+            <h2><span className="color-green">C</span>omments</h2>
+            <div style={randomStyles}>
+            <input required type="text" name="comment" className='form-control d-inline mr-2' value={commentVal} onChange={(e) => setCommentVal(e.target.value)}  style={{width: "90%"}} disabled={loading} />
+            <button className='btn btn-primary ml-2 d-inline-block' onClick={postData}>Post</button>
+            </div>
+            <div className='comments-list'  style={{marginTop: "20px"}}>
+                {comments !== [] && comments && comments.map((comm, index) => {
                     return <CommentCard 
                                 key={index}
                                 comment={comm}
@@ -46,11 +78,11 @@ const commentStyles = {
 
 const CommentCard = ({comment}) => {
     return(
-        <div className='comment-card' style={commentStyles}>
-            <p style={{margin: '0'}}>{comment.comment}</p>
-            <div style={{display: "flex", alignItems: "center", justifyContent:'space-between'}}>
-                <p>{comment.username}</p>
-                <p style={{margin: '0'}} className='text-muted'>{comment.postedAt}</p>
+        <div style={commentStyles}>
+            <p  style={{margin: '0'}}>{comment.comment}</p>
+            <div className='d-flex' style={{alignItems: "center", justifyContent:'space-between'}}>
+                <h6>{comment.username}</h6>
+                <p style={{margin: '0'}}>{new Date(comment.postedAt).toLocaleDateString()}</p>
             </div>
         </div>
     )

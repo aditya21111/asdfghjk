@@ -5,21 +5,24 @@ import swal from 'sweetalert'
 
 // import Loader from '../common/Loader'
 import Comments from '../components/articles/Comments'
+import Loader from '../layout/Loader'
 
 const ArticlePage = ({ match }) => {
     const [article, setArticle] = useState({})
     const [loading, setLoading] = useState(true)
+    const [comments, setComments] = useState(null)
 
     const fetchData = async() => {
         try {
             const res = await axios.get(`/articles/${match.params.id}`)
             const data = res.data
+            console.log(data)
             setArticle(data)
+            setComments(res.data.article.comments)
             setLoading(false)
-            console.log(article)
         } catch (err) {
-            console.log(err)
             setLoading(false)
+            console.log(err)
             swal({
                 title: "Error !",
                 text: `${err.response && err.response.data.message}`,
@@ -36,7 +39,7 @@ const ArticlePage = ({ match }) => {
 
     return (
         <article>
-            {loading ? "Loading" : 
+            {loading ? <Loader /> : 
             <Fragment>
             <MetaTags 
                 title={article.title}
@@ -52,7 +55,7 @@ const ArticlePage = ({ match }) => {
                     <span className='container'>{new Date(article.createdAt).toLocaleDateString()}</span>
                 </div>
                 <p className='para container'  dangerouslySetInnerHTML={{ __html: article.content }}></p>
-                <Comments comments={article.comments} />
+                <Comments comments={comments} id={article._id} setComments={setComments} />
             </div>
             </Fragment>}
         </article>

@@ -42,7 +42,8 @@ const ContactForm = () => {
         }
     
         return (
-            <form onSubmit={handleSubmit} className='container'>
+            <div className='container-fluid bg-grey'>
+            <form onSubmit={handleSubmit}>
                     {/* {loading && <Loader />} */}
                     <h2 className='h2-red'>Send Feedback</h2>
 
@@ -58,12 +59,11 @@ const ContactForm = () => {
                         <label>Message</label>
                         <textarea className='form-control' name='msg' type="text" value={formData.msg} placeholder="Enter Your Message" onChange={handleChange} required={true} disabled={loading} />
 
-                    <br />
-                    <br />
-                    <button className='btn btn-o-green' type="submit">
+                    <button className='btn btn-primary my-2' type="submit">
                         Submit
                     </button>
                 </form>
+                </div>
         )
 }
 
