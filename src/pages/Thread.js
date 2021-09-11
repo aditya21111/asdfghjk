@@ -56,6 +56,7 @@ const Thread = ({match}) => {
 
     useEffect(() => {
         fetchData()
+        // eslint-disable-next-line
     }, [])
 
     const randomStyles = {
@@ -79,7 +80,7 @@ const Thread = ({match}) => {
             <div className='question mt-3'>
             <h3>{question.content}</h3>
             <div className='q-user-info'>
-                <div className='d-flex align-items-center'><img src={`/uploads/${question.profile}`} className='user-avatar' /><p style={{margin: '0'}}>{question.username}</p></div>
+                <div className='d-flex align-items-center'><img src={`/uploads/${question.profile}`} className='user-avatar' alt='frick im in hurry no time ti write alt' /><p style={{margin: '0'}}>{question.username}</p></div>
                 <span>{new Date(question.postedAt).toLocaleDateString()}</span>
             </div>
         </div>
@@ -87,7 +88,7 @@ const Thread = ({match}) => {
             <hr />
             <h2><span className='color-green'>A</span>nswers</h2>
             <div style={randomStyles}>
-        <input className='form-control' type="text" name="comment" value={commentVal} onChange={(e) => setCommentVal(e.target.value)} />
+        <input className='form-control' type="text" name="comment" value={commentVal} onChange={(e) => setCommentVal(e.target.value)} disabled={loading} />
             <button onClick={postData} className='btn btn-primary'>Post</button>
             </div>
             {question.answers.map((ans, id) => {

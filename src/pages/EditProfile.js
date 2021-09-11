@@ -5,7 +5,6 @@ import axios from 'axios'
 const EditProfile = () => {
 
     const [inputVal, setInputVal] = useState(null)
-    const [user, setUser] = useState(null)
     const [file, setFile] = useState(null)
     const [loading, setLoading] = useState(false)
 
@@ -17,11 +16,9 @@ const EditProfile = () => {
             setLoading(true)
             if (localStorage.getItem('isConsultant') === 'true') {
                 res = await axios.get(`/consultant/get/${localStorage.getItem("userID")}`)
-                setUser(res.data.consultant)
                 setInputVal(res.data.user.about)
             } else {
                 res = await axios.get(`/user/get/${localStorage.getItem("userID")}`)
-                setUser(res.data.user)
                 setInputVal(res.data.user.about)
             }
             setLoading(false)

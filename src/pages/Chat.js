@@ -1,6 +1,5 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, useEffect } from 'react'
 import io from 'socket.io-client'
-import {Link} from 'react-router-dom'
 import ScrollToBottom from 'react-scroll-to-bottom'
 
 let socket;

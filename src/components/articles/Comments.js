@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import swal from 'sweetalert'
-import {Button} from 'react-bootstrap'
 import axios from 'axios'
 
 const Comments = ({comments, id, setComments}) => {
