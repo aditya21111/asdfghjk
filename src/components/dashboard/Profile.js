@@ -20,10 +20,10 @@ const Profile = () => {
             let res;
             if(localStorage.getItem('isConsultant') === 'true') {
                 console.log('herre')
-                res = await axios.get(`/consultant/get/${localStorage.getItem('userID')}`)
+                res = await axios.get(`https://healthplusplus.herokuapp.com/consultant/get/${localStorage.getItem('userID')}`)
                 setUser(res.data.consultant)
             } else {
-                res = await axios.get(`/user/get/${localStorage.getItem('userID')}`)
+                res = await axios.get(`https://healthplusplus.herokuapp.com/user/get/${localStorage.getItem('userID')}`)
                 setUser(res.data.user)
             }
             console.log(res.data.user)

@@ -19,7 +19,7 @@ const Stats = () => {
                 setShakeCount(false)
                 return
             }
-            const res = await axios.post('/stats/get', {
+            const res = await axios.post('https://healthplusplus.herokuapp.com/stats/get', {
                 password: localStorage.getItem('authKey')
             })
 

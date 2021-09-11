@@ -12,7 +12,7 @@ const AllArticles = () => {
 
     const fetchData = async () => {
         try {
-            const res = await axios.get(`/articles?page=${1}`)
+            const res = await axios.get(`https://healthplusplus.herokuapp.com/articles?page=${1}`)
             const data = res.data.article
             setArticles(data)
             setLoading(false)
@@ -40,7 +40,7 @@ const AllArticles = () => {
             }
         }
         try {
-            const res = await axios.delete(`/articles/${id}`, postData)
+            const res = await axios.delete(`https://healthplusplus.herokuapp.com/articles/${id}`, postData)
             swal({
                 title: "Success!",
                 text: `${res.data.message}`,

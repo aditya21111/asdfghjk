@@ -11,7 +11,7 @@ const AllContacts = () => {
 
     const fetchData = async () => {
         try {
-            const res = await axios.post(`/contact/`, {
+            const res = await axios.post(`https://healthplusplus.herokuapp.com/contact/`, {
                 password: sessionStorage.getItem('authToken')
             })
             const data = res.data.contact
@@ -31,7 +31,7 @@ const AllContacts = () => {
     const markAsDone = async (id) => {
         try {
             setLoading(true)
-            const res = await axios.post(`/contact/${id}`, {
+            const res = await axios.post(`https://healthplusplus.herokuapp.com/contact/${id}`, {
                 password: sessionStorage.getItem('authToken')
             })
             setLoading(false)

@@ -13,7 +13,7 @@ const Chats = () => {
     
     const fetchData = async () => {
         try {
-            const res = await axios.get('/consultant')
+            const res = await axios.get('https://healthplusplus.herokuapp.com/consultant')
             setConsultants(res.data.consultants)
         } catch (err) {
             console.log(err.response)

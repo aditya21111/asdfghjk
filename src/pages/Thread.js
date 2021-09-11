@@ -14,7 +14,7 @@ const Thread = ({match}) => {
 
     const fetchData = async function(){
         try {
-            const res = await axios.get(`/qna/${match.params.id}`)
+            const res = await axios.get(`https://healthplusplus.herokuapp.com/qna/${match.params.id}`)
             setQuestion(res.data.qna)
         } catch (err) {
             console.log(err.response)
@@ -30,7 +30,7 @@ const Thread = ({match}) => {
     const postData = async () => {
         try {
             setLoading(true)
-            const res = await axios.post(`/qna/a/${question._id}`, {
+            const res = await axios.post(`https://healthplusplus.herokuapp.com/qna/a/${question._id}`, {
                 answer: commentVal,
                 password: localStorage.getItem("authKey")
             })
