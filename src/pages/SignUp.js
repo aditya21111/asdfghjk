@@ -29,7 +29,7 @@ const SignUp = () => {
     }
 
     const submitForm = async () => {
-        if (checkBox2) {
+        if (!checkBox2) {
             return swal({
                 icon: 'error',
                 title: 'Wishlist Karlson on steam now Gamerrzzz!',
