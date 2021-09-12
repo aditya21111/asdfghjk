@@ -64,7 +64,7 @@ const AllArticles = () => {
     return (
         <div className='container'>
             <Link to='/admin/article/new'><button className='btn btn-outline-secondary container my-2'>Add Article</button></Link>
-            {loading ? "Loading" : articles.map((article, index) => {
+            {loading ? "Loading" : articles && articles.map((article, index) => {
                 return <ArticleCard 
                             key={index}
                             wallpaper={article.wallpaper} 

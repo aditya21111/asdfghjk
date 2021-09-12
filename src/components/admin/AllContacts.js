@@ -60,7 +60,7 @@ const AllContacts = () => {
         <div className='container'>
             <h1>All FeedBacks</h1>
                 {loading && "Loading"}
-            {!loading && contacts.map((contact, index) => {
+            {!loading && contacts && contacts.map((contact, index) => {
                 console.log(contact)
                 return <ContactCard 
                             key={index}
