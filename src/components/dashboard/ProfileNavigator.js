@@ -14,6 +14,7 @@ const ulStyles={
     }
     return (
         <ul className='profile-navigator' style={ulStyles}>
+            <li onClick={() => switchPage(0)} style={{...liStyles, background:  page===0 && '#eee'}}>Questions</li>
             <li onClick={() => switchPage(1)} style={{...liStyles, background:  page===1 && '#eee'}}>Answers</li>
             <li onClick={() => switchPage(2)} style={{...liStyles, background:  page===2 && '#eee'}}>Comments</li>
         </ul>

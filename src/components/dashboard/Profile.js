@@ -7,6 +7,7 @@ import ProfileNavigator from './ProfileNavigator'
 import Answers from './Answers'
 import Comments from './Comments'
 import Loader from '../../layout/Loader'
+import Questions from './Questions'
 
 import './style.css'
 
@@ -49,7 +50,7 @@ const Profile = () => {
             <div className='user-stats container'>
                 {user ? <React.Fragment>
                 <div className='d-flex align-items-center justify-content-center' style={{flexDirection:"column"}}>
-                <img src={`/uploads/${user.profile_pic}`} alt="pfp" className='mb-2 user-avatar-big' />
+                <img src={`https://healthplusplus.herokuapp.com/uploads/${user.profile_pic}`} alt="pfp" className='mb-2 user-avatar-big' />
                 <h3>{user.username}</h3>
                 <p>{user.about}</p>
                 <Link to='/user/edit-profile'><button className='btn btn-outline-primary mb-4'>Update profile</button></Link>
@@ -57,7 +58,7 @@ const Profile = () => {
                 </React.Fragment> : <Loader />}
                 <ProfileNavigator page={page} switchPage={switchPage}/>
                 {
-                    page === 1 ? <Answers /> : <Comments />
+                    page === 0 ? <Questions />: page === 1 ? <Answers /> : <Comments />
                 }
             </div>
         </div>

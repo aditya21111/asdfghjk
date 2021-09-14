@@ -11,7 +11,7 @@ const Chat = ({match}) => {
     const [msg, setMessage] = useState('')
 
 
-    socket = io('http://localhost:5000',  {
+    socket = io('https://healthplusplus.herokuapp.com/',  {
         transports: ['websocket'], 
         upgrade: false
       })

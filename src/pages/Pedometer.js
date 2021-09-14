@@ -59,7 +59,7 @@ const Pedometer = () => {
         function shakeEventDidOccur () {
 
             //put your own code here etc.
-            setShakeCount(shakeCount + 1)
+            setShakeCount(prev => prev+1)
             if (shakeCount % 20 === 0) {
                 postData(shakeCount)
             }

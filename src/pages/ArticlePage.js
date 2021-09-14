@@ -18,7 +18,7 @@ const ArticlePage = ({ match }) => {
             const data = res.data
             console.log(data)
             setArticle(data)
-            setComments(res.data.article.comments)
+            setComments(res.data.comments)
             setLoading(false)
         } catch (err) {
             setLoading(false)

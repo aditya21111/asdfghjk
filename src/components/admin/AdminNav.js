@@ -4,7 +4,8 @@ import React from 'react'
 const AdminNav = ({page, switchpage}) => {
     const ulStyles={
         display: 'flex',
-        padding: '0'
+        padding: '0',
+        marginTop: '10px'
     }
     const liStyles={
         marginRight: '10px',

@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className="footer-bs" id="footer-bs">
                 <div className="col-md-4 footer-brand">
                     <p></p>
-                    <p>© 2021 <strong>Code Fever</strong>, All rights reserved</p>
+                    <p>© 2021 <strong>Health++</strong>, All rights reserved</p>
                     <p style={{opacity:'0.7', letterSpacing:'2px'}}>I have no idea<br /> what to write here <br /> so im just leaving it<br /> like this xD</p>
                 </div>
 

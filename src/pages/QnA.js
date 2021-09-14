@@ -34,12 +34,14 @@ const QnA = () => {
                 password: localStorage.getItem('authKey'),
                 content: commentVal
             })
+            setQuestions(prev => [res.data.qna, ...prev])
             swal({
                 title: 'Success',
                 text: res.data.message,
                 icon: 'success',
                 button: 'OK'
             })
+            
             setLoading(false)
         } catch (err) {
             setLoading(false)

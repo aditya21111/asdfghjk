@@ -73,7 +73,7 @@ const ConsultantCard = ({name, email, id, profile}) => {
     return(
         <div className='container consultant-card mt-2' style={{paddingTop: '20px', paddingBottom: '10px', border: '1px solid rgba(0,0,0,0.2)', borderRadius: '10px'}}>
             <div className='d-flex'>
-                <img src={`/uploads/${profile}`} alt='pfp' />
+                <img src={`https://healthplusplus.herokuapp.com/uploads/${profile}`} alt='pfp' />
                 <h3 style={{marginLeft: '20px'}}>{name}</h3>
             </div>
             <p>{email}</p>
