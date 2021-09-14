@@ -6,7 +6,6 @@ import './style.css'
 const Navbar = ({history}) => {
 
     const [navIsToggled, setNavState] = useState(window.innerWidth > 726)
-    const [pageOffset, setPageOffset] = useState(window.pageYOffset)
     const [ulActive, setActive] = useState(0)
 
     const ulStyles = {
@@ -23,27 +22,16 @@ const Navbar = ({history}) => {
         background: `rgb(30, 30, 30)`
     }
 
-    useEffect(function() {
-        window.addEventListener('scroll', () => {
-            setPageOffset(window.pageYOffset)    
-        })
-
-        return () => {
-            window.removeEventListener('scroll', () => {
-                setPageOffset(window.pageYOffset)
-            })
-        }
-        // eslint-diable-next-line
-    }, [])
-
     useEffect(() => {
 
         let str = window.location.pathname
 
-        if (str.includes('tutorials')) {
+        if (str.includes('articles')) {
             setActive(1)
-        } else if (str.includes('blog')) {
+        } else if (str.includes('tools')) {
             setActive(2)
+        } else if(str.includes('qna')) {
+            setActive(3)
         } else {
             setActive(0)
         }
